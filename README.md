@@ -1,5 +1,5 @@
 
-# Ex.No:12 Design an application that draws basic graphical primitives on the screen.
+# Ex.No:7 Design an application that draws basic graphical primitives on the screen.
 
 
 ## AIM:
@@ -30,13 +30,77 @@ Step 7: Save and run the application.
 ```
 /*
 Program to create and design an android application that draws basic graphical primitives on the screen.
-Developed by:
-Registeration Number :
+Developed by: JAYA ABIRAMI S
+Registeration Number : 212223220038
 */
+```
+
+### activity_main.xml:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="413dp"
+        android:layout_height="736dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+### MainActivity.java:
+```java
+package com.example.expsevengraphical;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.os.Bundle;
+import android.widget.ImageView;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Bitmap bg = Bitmap.createBitmap(720, 1280,Bitmap.Config.ARGB_8888);
+
+        ImageView i = (ImageView) findViewById(R.id.imageView1);
+
+        Canvas canvas = new Canvas(bg);
+
+        Paint paint = new Paint();
+        paint.setColor(Color.GREEN);
+        paint.setTextSize(50);
+
+        canvas.drawText("Circle", 120, 150, paint);
+        canvas.drawCircle(200, 350, 150, paint);
+
+        canvas.drawText("Rectangle", 420, 150, paint);
+        canvas.drawRect(400, 200, 650, 700, paint);
+
+        canvas.drawText("Square", 120, 800, paint);
+        canvas.drawRect(50, 850, 350, 1150, paint);
+
+        canvas.drawText("Line", 500, 800, paint);
+        canvas.drawLine(520, 850, 520, 1150, paint);
+    }
+}
 ```
 
 ## OUTPUT
 
+<img width="767" height="1042" alt="image" src="https://github.com/user-attachments/assets/100f1b4c-d7dd-4969-861d-cb3eda1ff214" />
 
 
 
